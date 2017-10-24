@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int variable = 0;
+
+            Random rand = new Random();
+            variable = rand.Next(1, 5);
+
+            Console.WriteLine("variable " + variable);
+
+
+            
+            switch (variable)
+            {
+                case 1:
+                    Console.WriteLine("Zmienna a jest równa 1");                    
+                    break;
+                case 2:
+                    Console.WriteLine("Zmienna a jest równa 2");
+                    break;
+                case 3:
+                    Console.WriteLine("Zmienna a jest równa 3");
+                    break;
+                case 4:
+                    Console.WriteLine("Zmienna a jest równa 4");
+                    break;
+                case 5:
+                    Console.WriteLine("Zmienna a jest równa 5");
+                    break;
+            }
+            Console.ReadLine();
+
+        }
+    }
+}
