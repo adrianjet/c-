@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String text = "ala ma kota";
+            int n = 0;
+
+            CountWords(text);
+
+            Console.ReadKey();
+        }
+        static int CountWords (string text)
+        {
+            int n;
+            return text.Split(' ').Length;
+
+           n =  text.Split(' ').Length;
+        }
+    }
+}
