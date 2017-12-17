@@ -63,3 +63,53 @@ namespace ConsoleApp3
 
 Według profesorka
 ------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] table = new int[20];
+            Random rand = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                table[i] = rand.Next(20);
+                Console.WriteLine(table[i]);
+            }
+
+            Console.ReadLine();
+            getMaxValue(table);
+
+        }
+
+
+        static int getMaxValue(int[] table)
+        {
+            int wynik = 0;
+            int maxIndex = 0;
+
+            for (int i = 0; i < table.Length; i++)
+            {
+
+
+                if (wynik < table[i])
+                {
+                    maxIndex = i;
+                    wynik = (table[i]);
+                }
+
+            }
+            Console.WriteLine("Maksymalna Wartosc " + wynik);
+            Console.WriteLine("Maksymalna indeks " + maxIndex);
+            Console.ReadLine();
+            return (wynik);
+        }
+    }
+}
