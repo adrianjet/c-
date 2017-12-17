@@ -1,0 +1,53 @@
+Zaprojektować funkcję zwracającą maksymalny element tablicy liczb cał-
+kowitych przekazanej jej jako parametr wywołania:
+s t a t i c i n t getMaxValue ( i n t [ ] t a bl e )
+
+-----------------------------------------------------------------------------------------
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] table = new int[20];
+            Random rand = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                table[i] = rand.Next(20);
+                Console.WriteLine(table[i]);
+            }
+
+            Console.ReadLine();
+            getMaxValue(table);
+
+        }
+
+
+        static int getMaxValue(int[] table)
+        {
+            int wynik = 0;
+
+            for (int i = 0; i < table.Length; i++)
+            {
+
+
+                if (wynik < table[i])
+                {
+                    wynik = (table[i]);
+                }
+
+            }
+            Console.WriteLine("Maksymalna Wartosc " + wynik);
+            Console.ReadLine();
+            return (wynik);
+        }
+    }
+}
