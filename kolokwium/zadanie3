@@ -1,0 +1,74 @@
+Posiłkując się rozwiązaniem z zadania 2. - i poprzez analogię - zaprojek-
+tować pomocniczą funkcję zwracającą indeks, pod którym znajduje się
+
+element minimalny tablicy tj.:
+static int whereIsMinValue (int [] table)
+
+----------------------------------------------------------------
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] table = new int[20];
+            Random rand = new Random();
+            for ( int i=0; i<20; i++)
+            {
+                table[i] = rand.Next(20);
+                Console.WriteLine(table[i]);
+            }
+            
+            Console.ReadLine();
+                whereIsMaxValue(table);
+                whereIsMinValue(table);
+
+        }
+  
+
+        static int whereIsMaxValue( int[] table)
+        {
+            int wynik = 0;
+            int index = 0;
+
+            for (int i=0; i<20; i++)
+            {
+                if (table[i] >= table[index])
+                {
+                    index = i;
+                } 
+            }
+ 
+                Console.WriteLine("Maksymalna Wartosc zanjduje się w indexie " + index);
+            Console.ReadLine();
+            return (wynik);       
+        }
+
+        static int whereIsMinValue(int[] table)
+        {
+            int wynik = 0;
+            int indexMin = 0;
+
+            for (int i = 0; i < 20; i++)
+            {
+                if (table[i] <= table[indexMin])
+                {
+                    indexMin = i;
+                }
+            }
+
+            Console.WriteLine("Minimalna Wartosc zanjduje się w indexie " + indexMin);
+            Console.ReadLine();
+            return (wynik);
+        }
+    }
+}
