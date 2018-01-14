@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Pracownik pracownik1 = new Pracownik();
+            pracownik1.Imie = "Jan";
+            pracownik1.Nazwisko = "Nowak";
+            pracownik1.Wiek = 25;
+            pracownik1.stanowisko = "Grafik";
+            pracownik1.stawkaGodzinowa = 30;
+            Console.Out.WriteLine("Wynagrodzenie pracownika1 " + pracownik1.Imie + " " + pracownik1.Nazwisko + " " + pracownik1.calculatePayment(140) + "zl ");
+
+            Pracownik pracownik2 = new Pracownik();
+            Pracownik pracownik3 = new Pracownik();
+        
+            Console.Out.WriteLine("Ilosc pracownikow " + Pracownik.iloscPracownikow);
+            Console.ReadLine();
+        }
+
+
+
+
+        class Czlowiek
+        {
+            // TATE ZADEKLAROWANE WENATRZ KLASY
+            private string imie, nazwisko;
+            private int wiek;
+            protected int wzrost;
+
+            //DODANIE KODU KTORY UDOSTEPNI DANE NA ZEWNATRZ
+
+            public string Imie { get => imie; set => imie = value; }
+            public string Nazwisko { get => nazwisko; set => nazwisko = value; }
+            public int Wiek { get => wiek; set => wiek = value; }
+            public int Wzrost { get => wzrost; set => wzrost = value; }
+        }
+
+
+
+
+        class Pracownik : Czlowiek
+        {
+            public String stanowisko;
+            public float stawkaGodzinowa;
+            public static int iloscPracownikow;
+
+            // Tworzenie konstruktora ktory liczy ilu jestr pracownikow
+            public Pracownik()
+            {
+                Pracownik.iloscPracownikow++;
+            }
+            public float calculatePayment(int hours) => hours * stawkaGodzinowa;
+        }
+    }
+}
