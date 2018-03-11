@@ -1,0 +1,386 @@
+--------------------------------------------------------------------------------------------------------------------------------------
+clasa punkt, 2 metody - drukuj 2d i drukuj 3d, tworzenie obiektu clasy punkt
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Punkt
+    {
+        public void Drukuj(int x, int y)
+        {
+            Console.WriteLine(" Drukuj punkt 2D " + x + " " + y);
+        }
+        public void Drukuj(int x, int y, int z)
+        {
+            Console.WriteLine("Drukuj punkt 3D " + x + "," + y +  "," + z);
+        }
+        
+
+    }
+    class Program
+    { 
+        static void Main(string[] args)
+        {
+            Punkt p = new Punkt();
+            p.Drukuj(20, 10);
+            p.Drukuj(20, 10, 10);
+
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Napisz klase główną zawierającą abstrakcyjną metodę Wyświetl. Z klasy tej wyprowadź klasę potomną o nazwie Potomna.
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    abstract class Glowna
+    {
+        public abstract void Wyswietl();
+    }
+
+    class Potomna : Glowna
+    {
+        public override void Wyswietl()
+        {
+
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Napisz klasę First zawierającą abstrakcyjną metodę F()  z tej klasy wyprowadź klsę potomną Second
+zawierającą abstrakcyjną metodę G(). Z klasy second wyprowadź klasę third
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    abstract class First
+    {
+        public abstract void F();
+    }
+
+    abstract class Second : First
+    {
+        public override void F()
+        {
+
+        }
+        public abstract void G();
+    }
+
+        class Third : Second
+        {
+            public override void G()
+            {
+            }
+        }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Napisz kod interfejsu o nazwie Rysowanie w którym zostanie zadeklarowana metoda rysuj2D i rysuj 3D. Następnie napisz klasę figura
+która będzie implementowała tej interfejs.
+--------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public interface Rysowanie
+    {
+        void Rysuj2D();
+        void Rysuj3D();
+
+    }
+
+    public class Figura : Rysowanie
+    {
+        public void Rysuj2D()
+        {
+        }
+
+        public void Rysuj3D()
+        {
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Zmodyfikuj kod z zadania 3 tak aby klasa Figura posiadała konstruktor przyjmujący jeden parametr typu string. Przekazany jako parametr
+tekst ma być wyświetlany w konsoli przez metodę Rysuj2D.
+--------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public interface Rysowanie
+    {
+        void Rysuj2D();
+        void Rysuj3D();
+
+    }
+
+    public class Figura : Rysowanie
+    {
+        string nazwa;
+        public Figura (string nazwa)
+        {
+            this.nazwa = nazwa;
+
+        }
+
+        public void Rysuj2D()
+        {
+            Console.WriteLine(this.nazwa);
+        }
+
+        public void Rysuj3D()
+        {
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Napisz interface Urzadzenie zawierajacy deklaracje metody wlacz() i wylacz(). Napisz interface Drukarka rozszerzajacy interface Urzadzenie
+, zawierajacy deklaracje metody Drukkuj. Napisz klase Drukarka3D inplementujacy interface drukarka.
+--------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    interface Urzadzenie
+    {
+        void Wlacz();
+        void Wylacz();
+
+    }
+
+    interface Drukarka : Urzadzenie
+    {
+        void Drukuj();
+    }
+
+    class Drukara3D : Drukarka
+    {
+        public void Drukuj() {
+        }
+        public void Wlacz()
+        {
+        }
+        public void Wylacz()
+        {
+
+        }
+
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Program demonstrujacy dzialanie klasy drukarka
+--------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    interface Urzadzenie
+    {
+        void Wlacz();
+        void Wylacz();
+
+    }
+
+    interface Drukarka : Urzadzenie
+    {
+        void Drukuj();
+    }
+
+    class Drukarka3D : Drukarka
+    {
+        public void Drukuj() {
+            Console.WriteLine("Drukowanie");
+        }
+        public void Wlacz()
+        {
+            Console.WriteLine("Wlaczanie");
+        }
+        public void Wylacz()
+        {
+            Console.WriteLine("Wylaczanie");
+        }
+
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Drukarka3D Zeus = new Drukarka3D();
+            Zeus.Wlacz();
+            Zeus.Drukuj();
+            Zeus.Wylacz();
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Napisz interface Magazyn zawierajacy deklaracje metody stanMagazynu(), oraz interface Ksiegowosc zawierajacy metode obliczPrzychody
+Stworz klase Przedsiebiorstwo implementujacy oba interfejcy. Napisz program demonstrujacy działanie programu
+--------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    interface Magazyn
+    {
+        void stanMagazynu();
+    }
+    interface Ksiegowosc
+    {
+        void obliczPrzychod();
+    }
+
+    public class Przedsiebiorstwo : Magazyn, Ksiegowosc
+    {
+        float przychody;
+        float iloscProduktow;
+
+        public void stanMagazynu()
+        {
+
+        }
+        public void obliczPrzychod()
+        {
+
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Napisz klase o nazwie Zewnetrzna zawierajaca wewnetrzna klase o nazwie Wewnetrzna o dostepie publicznym. W klasie zewnetrzna umiesc metode
+zwracajaca nowy obiekt klasy Wewnetrzna.
+--------------------------------------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Zewnetrzna
+    {
+        public class Wewnetrzna
+        {
+        }
+
+        public Wewnetrzna ZwrocObiekt()
+        {
+            return new Wewnetrzna();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
